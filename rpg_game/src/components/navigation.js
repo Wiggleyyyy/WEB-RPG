@@ -3,7 +3,7 @@
 import * as React from "react";
 
 export function Navigation({MoveDirection}) {
-    function RandInt(max){
+    function RandLengthArray(max){
         var rand = Math.floor(Math.random() * max) + 1;
         const result = [];
         for (var i = 0; i < rand; i++){
@@ -11,30 +11,37 @@ export function Navigation({MoveDirection}) {
         }
         return result;
     }
-    var rows = RandInt(5);
-    var rowColumns;
+    var rows = RandLengthArray(4);
+    rows.push(rows.length);
+    var rowColumns = [];
     var squares = 0;
-    /*while (squares < 10){
+    var squaresIsLeast10 = false;
+
+    while (squares < 10){
+        var rowColumns = [];
         squares = 0;
         for (var i = 0; i < rows.length; i++){
-            var rand = RandInt(7);
+            var rand = RandLengthArray(7);
             rowColumns.push(rand);
             squares += rand.length;
-            console.log(squares);
+            console.log("rows: " + rows[i]);
+            console.log(rand.length + " amount of rows " + rows.length + " squares " + squares);
         }
-    }*/
+    }
   return (
     <div className="bg-zinc-700 border-2 border-yellow-400 w-[20dvw] h-[60dvh] rounded-lg absolute right-2 bottom-2 flex flex-col justify-center items-center">
         <div className="flex flex-col h-[40%] w-[90%] justify-center items-center">
             {rows.map((row) => {
             return (
                 <div className="flex flex-row">
-                    {rowColumns[row].map((col) => (
+                    {rowColumns[row].map((col) => {
+                        console.log(col + " row " + row);
+                    return (
                         <>
                         <div className="w-[2vw] h-[4vh] bg-zinc-800 m-1"></div>
-                        {(rowColumns[row].length % 2 == 0 && col + 1 == rowColumns[row].length) && <div className="w-[2vw] h-[4vh] m-1"> </div>}
                         </>
-                    ))}
+                    )})}
+                        {rowColumns[row].length % 2 == 0 && <div className="w-[2vw] h-[4vh] m-1"> </div>}
                 </div>
             )})}
         </div>
