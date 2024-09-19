@@ -1,8 +1,6 @@
 "use client";
 
-import * as React from "react";
-
-export function Navigation({MoveDirection}) {
+export function Navigation({Move, yellowPosition}) {
     function RandLengthArray(max){
         var rand = Math.floor(Math.random() * max) + 1;
         const result = [];
@@ -13,35 +11,34 @@ export function Navigation({MoveDirection}) {
     }
     var rows = RandLengthArray(4);
     rows.push(rows.length);
-    var rowColumns = [];
-    var squares = 0;
-    var squaresIsLeast10 = false;
+    var squares = [];
+    var squaresAmount = 0;    
 
-    while (squares < 10){
-        var rowColumns = [];
-        squares = 0;
+    while (squaresAmount < 10){
+        var squares = [];
+        squaresAmount = 0;
         for (var i = 0; i < rows.length; i++){
             var rand = RandLengthArray(7);
-            rowColumns.push(rand);
-            squares += rand.length;
-            console.log("rows: " + rows[i]);
-            console.log(rand.length + " amount of rows " + rows.length + " squares " + squares);
+            squares.push(rand);
+            squaresAmount += rand.length;
         }
     }
+    yellowPosition.row = RandLengthArray(rows.length-1).length;
+     yellowPosition.col = RandLengthArray(squares[yellowPosition.row].length-1).length-1;
   return (
     <div className="bg-zinc-700 border-2 border-yellow-400 w-[20dvw] h-[60dvh] rounded-lg absolute right-2 bottom-2 flex flex-col justify-center items-center">
         <div className="flex flex-col h-[40%] w-[90%] justify-center items-center">
             {rows.map((row) => {
             return (
                 <div className="flex flex-row">
-                    {rowColumns[row].map((col) => {
-                        console.log(col + " row " + row);
-                    return (
+                    {squares[row].map((col) => {
+                        return (
                         <>
-                        <div className="w-[2vw] h-[4vh] bg-zinc-800 m-1"></div>
+                        {row == yellowPosition.row && col == yellowPosition.col? <div className="w-[2vw] h-[4vh] bg-yellow-400 m-1"> </div> : 
+                                                                         <div className="w-[2vw] h-[4vh] bg-zinc-800 m-1"></div>}
                         </>
                     )})}
-                        {rowColumns[row].length % 2 == 0 && <div className="w-[2vw] h-[4vh] m-1"> </div>}
+                    {squares[row].length % 2 == 0 && <div className="w-[2vw] h-[4vh] m-1"> </div>}
                 </div>
             )})}
         </div>
@@ -49,17 +46,17 @@ export function Navigation({MoveDirection}) {
         <div className="h-[40%] flex flex-col justify-center items-center">
             <div className="flex flex-row">
                 <div className="w-[4vw]"></div>
-                <button onClick={() => MoveDirection("up")} className="bg-zinc-800 border-2 border-yellow-400 rounded-lg w-[4vw] p-2 text-yellow-400">Up</button>
+                <button onClick={() => Move("up", squares)} className="bg-zinc-800 border-2 border-yellow-400 rounded-lg w-[4vw] p-2 text-yellow-400">Up</button>
                 <div className="w-[4vw]"></div>
             </div>
             <div className="flex flex-row">
-                <button onClick={() => MoveDirection("left")} className="bg-zinc-800 border-2 border-yellow-400 rounded-lg w-[4vw] p-2 text-yellow-400">Left</button>
+                <button onClick={() => Move("left", squares)} className="bg-zinc-800 border-2 border-yellow-400 rounded-lg w-[4vw] p-2 text-yellow-400">Left</button>
                 <div className="w-[4vw]"></div>
-                <button onClick={() => MoveDirection("right")} className="bg-zinc-800 border-2 border-yellow-400 rounded-lg w-[4vw] p-2 text-yellow-400">Right</button>
+                <button onClick={() => Move("right", squares)} className="bg-zinc-800 border-2 border-yellow-400 rounded-lg w-[4vw] p-2 text-yellow-400">Right</button>
             </div>
             <div className="flex flex-row">
                 <div className="w-[4vw]"></div>
-                <button onClick={() => MoveDirection("down")} className="bg-zinc-800 border-2 border-yellow-400 rounded-lg w-[4vw] p-2 text-yellow-400">Down</button>
+                <button onClick={() => Move("down", squares)} className="bg-zinc-800 border-2 border-yellow-400 rounded-lg w-[4vw] p-2 text-yellow-400">Down</button>
                 <div className="w-[4vw]"></div>
             </div>
         </div>
