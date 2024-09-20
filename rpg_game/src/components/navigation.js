@@ -34,8 +34,8 @@ export function Navigation({Move, yellowPosition}) {
                     {squares[row].map((col) => {
                         return (
                         <>
-                        {row == yellowPosition.row && col == yellowPosition.col? <div className="w-[2vw] h-[4vh] bg-yellow-400 m-1"> </div> : 
-                                                                         <div className="w-[2vw] h-[4vh] bg-zinc-800 m-1"></div>}
+                        {row == yellowPosition.row && col == yellowPosition.col? <div id={row.toString() + col.toString()} className="w-[2vw] h-[4vh] bg-yellow-400 m-1"> </div> : 
+                                                                         <div id={row.toString() + col.toString()} className="w-[2vw] h-[4vh] bg-zinc-800 m-1"></div>}
                         </>
                     )})}
                     {squares[row].length % 2 == 0 && <div className="w-[2vw] h-[4vh] m-1"> </div>}
