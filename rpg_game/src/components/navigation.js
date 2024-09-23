@@ -1,31 +1,41 @@
 "use client";
 
-export function Navigation({Move, grid, yellowPosition}) {
+export function Navigation({Move, grid, yellowPosition, leftOrRightRows}) {
     return (
       <div className="bg-zinc-700 border-2 border-yellow-400 w-[20dvw] h-[60dvh] rounded-lg absolute right-2 bottom-2 flex flex-col justify-center items-center">
         <div className="flex flex-col h-[40%] justify-center ml-10">
-          {grid.map((row, rowIndex) => (
-            <div className="flex flex-row" key={rowIndex}>
-              {row.map((tile, colIndex) => (
-                <div key={tile.id}>
-                  {/* Active tile */}
-                  {rowIndex === yellowPosition.row && colIndex === yellowPosition.col ? (
-                    <div id={tile.id} className="w-[2vw] h-[4vh] bg-yellow-400 m-1"></div>
-                  ) : (
-                    // Previously visited tile
-                    <div
-                      id={tile.id}
-                      className={`w-[2vw] h-[4vh] m-1 ${
-                        tile.visited ? "bg-yellow-200" : "bg-zinc-800"
-                      }`}
-                    ></div>
-                  )}
-                </div>
-              ))}
-              {/* Make sure the row has even width */}
-              {row.length % 2 === 0 && <div className="w-[2vw] h-[4vh] m-1"></div>}
-            </div>
-          ))}
+          {grid.map((row, rowIndex) => 
+          {
+            if (row.length % 2 === 0){
+              leftOrRightRows.push("left");
+            }
+            else {
+              leftOrRightRows.push("right");
+            }
+            return (
+              <div className="flex justify-center" key={rowIndex}>
+                {row.map((tile, colIndex) => (
+                  <div key={tile.id}>
+                    {/* Active tile */}
+                    {rowIndex === yellowPosition.row && colIndex === yellowPosition.col ? (
+                      <div id={tile.id} className="w-[2vw] h-[4vh] bg-yellow-400 m-1"></div>
+                    ) : (
+                      // Previously visited tile
+                      <div
+                        id={tile.id}
+                        className={`w-[2vw] h-[4vh] m-1 ${
+                          tile.visited ? "bg-yellow-200" : "bg-zinc-800"
+                        }`}
+                      ></div>
+                    )}
+                  </div>
+                ))}
+                {/* Make sure the row has even width */}
+                {row.length % 2 === 0 && <div className="w-[2vw] h-[4vh] m-1"></div>}
+              </div>
+              )
+          }
+          )}
         </div>
         <div className="w-[90%] h-[0.25vh] bg-yellow-400 m-5"></div>
         <div className="h-[40%] flex flex-col justify-center items-center">
