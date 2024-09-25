@@ -79,13 +79,16 @@ export default function Home() {
     const randomCol = Math.floor(Math.random() * rows[randomRow].length);
     rows[randomRow][randomCol].type = "capital";
     rows[randomRow][randomCol].name = "Capital";
-  
+    
+    //get current tile name
+    
     return rows;
   }
-
+  console.log(yellowPosition.col);
+  var tileName = grid[yellowPosition.row][yellowPosition.col].name; 
   return (
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
-      {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} />}
+      {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tileName={tileName}/>}
       <Interaction tileType={currentTileType}/>
     </main>
   );
