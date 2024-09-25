@@ -1,6 +1,7 @@
 "use client";
 import { Navigation } from "@/components/navigation";
 import * as React from "react";
+import { Interaction } from "@/components/interactions";
 
 export default function Home() {
   const [grid, setGrid] = React.useState([]);
@@ -82,6 +83,7 @@ export default function Home() {
   return (
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
       {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} />}
+      <Interaction />
     </main>
   );
 }
