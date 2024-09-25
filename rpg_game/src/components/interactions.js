@@ -1,39 +1,23 @@
 "use client";
 
-export function Interaction(tileType) {
-  var image;
-  var interractions = ["combat", "merchant", "npc", "objective", "gamble"]
-  switch (tileType) {
-    case "plain" :
-      // roll dice for interraction amount
-      // roll dice in list of interractions
-      // save tile in localstorage and make sure not to reroll dice :)
-      image = "interraction image";
-      break;
-    
-    case "settlement" :
-      // shit
-      break;
-    
-    case "forest" :
-      // shit
-      break;
-
-    case "lake" :
-      // shit
-      break;
-
-    case "dungeon" :
-      // shit
-      break;
-
-    case "capital" :
-      // shit
-      break;
-  }
+export function Interaction({tileType}) {
   return (
     <div className="w-[20vw] h-[37.5vh] bg-zinc-700 border-2 border-yellow-400 absolute right-2 top-2 rounded-lg">
-        {/* display interractions */}
+        {tileType === "plain" ? (
+            <h1>plain</h1>
+        ) : tileType === "settlement" ? (
+            <h1>settlement</h1>
+        ) : tileType === "forest" ? (
+            <h1>forest</h1>
+        ) : tileType === "dungeon" ? (
+            <h1>dungeon</h1>
+        ) : tileType === "capital" ? (
+            <h1>capital</h1>
+        ) : tileType === "lake" ? (
+            <h1>lake</h1>
+        ) : (
+            <h1>Error, tile type not found</h1>
+        )}
     </div>
   );
 }

@@ -18,6 +18,9 @@ export default function Home() {
     const randomCol = Math.floor(Math.random() * generatedGrid[randomRow].length);
     
     setYellowPosition({ row: randomRow, col: randomCol });
+
+    const currentTile = generatedGrid[randomRow][randomCol];
+    setCurrentTileType(currentTile.type);
   }, []);
 
   function Move(direction) {
@@ -45,7 +48,9 @@ export default function Home() {
     // Update yellow position
     setYellowPosition({ row, col });
 
-    //SET CURRENT TILE TYPE!!!
+    const currentTile = grid[row][col];
+    setCurrentTileType(currentTile.type);
+    console.log(currentTile.type);
   }
 
   function generateGrid(maxRows, maxCols) {
