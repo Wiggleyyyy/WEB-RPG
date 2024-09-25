@@ -4,6 +4,7 @@ import * as React from "react";
 import { Interaction } from "@/components/interactions";
 
 export default function Home() {
+  const [currentTileType, setCurrentTileType] = React.useState("");
   const [grid, setGrid] = React.useState([]);
   const [yellowPosition, setYellowPosition] = React.useState({ row: 0, col: 0 });
 
@@ -43,6 +44,8 @@ export default function Home() {
   
     // Update yellow position
     setYellowPosition({ row, col });
+
+    //SET CURRENT TILE TYPE!!!
   }
 
   function generateGrid(maxRows, maxCols) {
@@ -83,7 +86,7 @@ export default function Home() {
   return (
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
       {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} />}
-      <Interaction />
+      <Interaction tileType={currentTileType}/>
     </main>
   );
 }
