@@ -90,7 +90,6 @@ export default function Home() {
     
     return rows;
   }
-  console.log(yellowPosition.col);
   return (
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
       {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tileName={currentTileName}/>}
