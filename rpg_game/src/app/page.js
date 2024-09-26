@@ -4,6 +4,133 @@ import * as React from "react";
 import { Interaction } from "@/components/interactions";
 
 export default function Home() {
+  const plains = [
+    "The Ashen Fields",
+    "Vareldar Expanse",
+    "Hallowwind Flats",
+    "Ebonvale Plateau",
+    "Mournshade Steppe",
+    "Sablemere Grasslands",
+    "Cradle of Dust",
+    "The Weeping Plains",
+    "Galehollow Stretch",
+    "The Forsaken Steppe",
+    "The Bleakreach",
+    "Stormveil Expanse",
+    "Skyshear Plains",
+    "The Voidscar Wastes",
+    "Frostspire Tundra",
+    "Ashfall Downs",
+    "The Boneplains",
+    "Evergale Expanse",
+    "Starfell Flats",
+    "The Silent Reach"
+  ];
+  
+  const dungeons = [
+    "Tomb of Blackened Souls",
+    "Grimspire Crypt",
+    "Obsidian Abyss",
+    "Chasm of the Forgotten",
+    "Hollowpeak Catacombs",
+    "Veilrend Vault",
+    "The Bleakspire Ruins",
+    "Direstone Pit",
+    "Nethergrasp Chambers",
+    "The Abyssal Bastion",
+    "Doomspire Caverns",
+    "Ebonforge Depths",
+    "Shadowfang Vault",
+    "Harrowhold Dungeon",
+    "The Abyssal Cradle",
+    "Frostheart Ruins",
+    "The Blackscar Maze",
+    "Dreadspire Labyrinth",
+    "The Forgotten Sepulchre",
+    "Grimstone Tunnels"
+  ];
+  
+  const lakes = [
+    "Lamentation Lake",
+    "Moonveil Waters",
+    "Crystalfall Basin",
+    "The Sunken Mirror",
+    "Lake of Silent Echoes",
+    "Emerald Veil Lake",
+    "The Blackmire Loch",
+    "Frostmourne Lake",
+    "Gloomwater Depths",
+    "The Azure Shallows",
+    "Veilrend Lake",
+    "The Sinking Abyss",
+    "Hallowedmere Loch",
+    "Silvermist Waters",
+    "The Glassmere",
+    "Gloomveil Tarn",
+    "Duskfall Lagoon",
+    "Bloodtide Lake",
+    "Lunarwhisper Pond",
+    "The Crystal Hollow"
+  ];
+  
+  const capitals = [
+    "Ironscar Keep",
+    "Thornhaven Citadel",
+    "Ivoryspire Bastion",
+    "Wraithfell City",
+    "Sablethorn Hold",
+    "Darkveil Sanctum",
+    "The Gilded Spire",
+    "Stormcrest Citadel",
+    "Vaylenrath",
+    "Bloodstone Bastion"
+  ];
+  
+  const settlements = [
+    "Grimshade Hamlet",
+    "The Withered Den",
+    "Hollowspring Village",
+    "Stormwatch Outpost",
+    "Ironbranch Hamlet",
+    "Duskwatch Refuge",
+    "Gloomhollow Encampment",
+    "Oathmoor Settlement",
+    "Ashenroot Village",
+    "Shardfen Hold"
+  ];
+  
+  const forests = [
+    "The Eldergloom Thicket",
+    "Harrowshade Grove",
+    "Mistveil Wilds",
+    "The Blackthorn Forest",
+    "Fellwood Expanse",
+    "Duskfall Hollow",
+    "Ironbark Wilderness",
+    "The Whispering Glade",
+    "Ravenmist Wood",
+    "The Shrouded Vale",
+    "Brackenfell Grove",
+    "Twilightbloom Wilds",
+    "Shadefern Hollow",
+    "Wraithwood Thicket",
+    "The Cursed Briar",
+    "Ravenpeak Woods",
+    "The Forsaken Canopy",
+    "Moonshadow Grove",
+    "The Gloomspire Thicket",
+    "The Oathroot Forest"
+  ];
+  
+  const listMap = {
+    plains,
+    dungeons,
+    lakes,
+    capitals,
+    settlements,
+    forests
+  }
+
   const [currentTileType, setCurrentTileType] = React.useState("");
   const [currentTileName, setCurrentTileName] = React.useState("");
   const [grid, setGrid] = React.useState([]);
@@ -14,12 +141,12 @@ export default function Home() {
     const generatedGrid = generateGrid(4, 7); // 4 rows, up to 7 columns per row
     setGrid(generatedGrid);
     
-    // Random starting position
-    const randomRow = Math.floor(Math.random() * generatedGrid.length);
-    const randomCol = Math.floor(Math.random() * generatedGrid[randomRow].length);
-    
-    setYellowPosition({ row: randomRow, col: randomCol });
-
+     // Random starting position
+     const randomRow = Math.floor(Math.random() * generatedGrid.length);
+     const randomCol = Math.floor(Math.random() * generatedGrid[randomRow].length);
+     
+     setYellowPosition({ row: randomRow, col: randomCol });
+     
     const currentTile = generatedGrid[randomRow][randomCol];
     setCurrentTileName(currentTile.name);
     setCurrentTileType(currentTile.type);
@@ -72,7 +199,7 @@ export default function Home() {
           const tileType = tileTypes[Math.floor(Math.random() * tileTypes.length)]; // Random type
           cols.push({
             id: `tile-${i}-${j}`,
-            name: tileType.charAt(0).toUpperCase() + tileType.slice(1), // Capitalize the type name
+            name: listMap[tileType + 's'][Math.floor(Math.random() * listMap[tileType].length)],
             type: tileType,
             visited: false, // Track if the tile was visited
           });
