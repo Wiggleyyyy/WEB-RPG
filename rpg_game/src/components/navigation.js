@@ -1,9 +1,9 @@
 "use client";
 
-export function Navigation({ Move, grid, yellowPosition, tileName }) {
+export function Navigation({ Move, grid, yellowPosition, tile }) {
   return (
     <div className="bg-zinc-700 border-2 border-yellow-400 w-[20dvw] h-[60dvh] rounded-lg absolute right-2 bottom-2 flex flex-col justify-center items-center">
-      <h1 className="text-yellow-400 text-2xl">{tileName}</h1>
+      <h1 className="text-yellow-400 text-2xl">{tile.name}</h1>
       <div className="flex flex-col h-[40%] justify-center ml-10">
         {grid.map((row, rowIndex) => (
           <div className="flex flex-row" key={rowIndex}>

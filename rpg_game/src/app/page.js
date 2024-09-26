@@ -2,6 +2,7 @@
 import { Navigation } from "@/components/navigation";
 import * as React from "react";
 import { Interaction } from "@/components/interactions";
+import { User } from "@/components/user";
 
 export default function Home() {
   const plains = [
@@ -223,13 +224,15 @@ export default function Home() {
     var capitalTile = rows[randomRow][randomCol];
     capitalTile.type = "capital";
     capitalTile.name = capitals[Math.floor(Math.random() * capitals.length)];
+    capitalTile.hasNpcs = true;
     
     return rows;
   }
   return (
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
-      {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tileName={currentTile.name}/>}
+      {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tile={currentTile}/>}
       <Interaction tile={currentTile}/>
+      <User />
     </main>
   );
 }

@@ -28,19 +28,19 @@ export function Interaction({ tile }) {
 
   return (
     <div className="w-[20vw] h-[37.5vh] bg-zinc-700 border-2 border-yellow-400 absolute right-2 top-2 rounded-lg">
-        {tile.tileType === "plain" ? (
+        {tile.type === "plain" ? (
             <div className="flex items-center justify-center h-[100%]">
                 <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" onClick={() => CheckForAnimals()}>Check for animals</button>
             </div>
-        ) : tile.tileType === "settlement" ? (
+        ) : tile.type === "settlement" ? (
             <h1>settlement</h1>
-        ) : tile.tileType === "forest" ? (
+        ) : tile.type === "forest" ? (
             <h1>forest</h1>
-        ) : tile.tileType === "dungeon" ? (
+        ) : tile.type === "dungeon" ? (
             <h1>dungeon</h1>
-        ) : tile.tileType === "capital" ? (
+        ) : tile.type === "capital" ? (
             <h1>capital</h1>
-        ) : tile.tileType === "lake" ? (
+        ) : tile.type === "lake" ? (
             <h1>lake</h1>
         ) : (
             <h1>Error, tile type not found</h1>
