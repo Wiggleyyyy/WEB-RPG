@@ -5,6 +5,7 @@ import { Interaction } from "@/components/interactions";
 
 export default function Home() {
   const [currentTileType, setCurrentTileType] = React.useState("");
+  const [currentTileName, setCurrentTileName] = React.useState("");
   const [grid, setGrid] = React.useState([]);
   const [yellowPosition, setYellowPosition] = React.useState({ row: 0, col: 0 });
 
@@ -20,6 +21,7 @@ export default function Home() {
     setYellowPosition({ row: randomRow, col: randomCol });
 
     const currentTile = generatedGrid[randomRow][randomCol];
+    setCurrentTileName(currentTile.name);
     setCurrentTileType(currentTile.type);
   }, []);
 
@@ -49,6 +51,7 @@ export default function Home() {
     setYellowPosition({ row, col });
 
     const currentTile = grid[row][col];
+    setCurrentTileName(currentTile.name);
     setCurrentTileType(currentTile.type);
     console.log(currentTile.type);
   }
@@ -85,15 +88,12 @@ export default function Home() {
     rows[randomRow][randomCol].type = "capital";
     rows[randomRow][randomCol].name = "Capital";
     
-    //get current tile name
-    
     return rows;
   }
   console.log(yellowPosition.col);
-  var tileName = grid[yellowPosition.row][yellowPosition.col].name; 
   return (
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
-      {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tileName={tileName}/>}
+      {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tileName={currentTileName}/>}
       <Interaction tileType={currentTileType}/>
     </main>
   );
