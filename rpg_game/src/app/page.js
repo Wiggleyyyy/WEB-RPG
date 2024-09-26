@@ -132,6 +132,7 @@ export default function Home() {
   }
 
   const [currentTileType, setCurrentTileType] = React.useState("");
+  const [currentTileName, setCurrentTileName] = React.useState("");
   const [grid, setGrid] = React.useState([]);
   const [yellowPosition, setYellowPosition] = React.useState({ row: 0, col: 0 });
 
@@ -147,6 +148,7 @@ export default function Home() {
      setYellowPosition({ row: randomRow, col: randomCol });
      
     const currentTile = generatedGrid[randomRow][randomCol];
+    setCurrentTileName(currentTile.name);
     setCurrentTileType(currentTile.type);
   }, []);
 
@@ -176,6 +178,7 @@ export default function Home() {
     setYellowPosition({ row, col });
 
     const currentTile = grid[row][col];
+    setCurrentTileName(currentTile.name);
     setCurrentTileType(currentTile.type);
     console.log(currentTile.type);
   }
