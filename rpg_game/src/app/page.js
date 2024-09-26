@@ -122,8 +122,7 @@ export default function Home() {
     "The Oathroot Forest"
   ];
 
-  const [currentTileType, setCurrentTileType] = React.useState("");
-  const [currentTileName, setCurrentTileName] = React.useState("");
+  const [currentTile, setCurrentTile] = React.useState({});
   const [grid, setGrid] = React.useState([]);
   const [yellowPosition, setYellowPosition] = React.useState({ row: 0, col: 0 });
 
@@ -139,8 +138,7 @@ export default function Home() {
      setYellowPosition({ row: randomRow, col: randomCol });
      
     const currentTile = generatedGrid[randomRow][randomCol];
-    setCurrentTileName(currentTile.name);
-    setCurrentTileType(currentTile.type);
+    setCurrentTile(currentTile);
   }, []);
 
   function Move(direction) {
@@ -169,8 +167,7 @@ export default function Home() {
     setYellowPosition({ row, col });
 
     const currentTile = grid[row][col];
-    setCurrentTileName(currentTile.name);
-    setCurrentTileType(currentTile.type);
+    setCurrentTile(currentTile);
     console.log(currentTile.type);
   }
 
@@ -211,6 +208,8 @@ export default function Home() {
             name: tileName,
             type: tileType,
             visited: false, // Track if the tile was visited
+            hasNpcs: false,
+            npcs: [],
           });
         }
         rows.push(cols);
@@ -229,8 +228,8 @@ export default function Home() {
   }
   return (
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
-      {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tileName={currentTileName}/>}
-      <Interaction tileType={currentTileType}/>
+      {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tileName={currentTile.name}/>}
+      <Interaction tile={currentTile}/>
     </main>
   );
 }
