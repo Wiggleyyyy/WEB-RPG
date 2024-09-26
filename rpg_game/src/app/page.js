@@ -121,15 +121,6 @@ export default function Home() {
     "The Gloomspire Thicket",
     "The Oathroot Forest"
   ];
-  
-  const listMap = {
-    plains,
-    dungeons,
-    lakes,
-    capitals,
-    settlements,
-    forests
-  }
 
   const [currentTileType, setCurrentTileType] = React.useState("");
   const [currentTileName, setCurrentTileName] = React.useState("");
@@ -196,10 +187,28 @@ export default function Home() {
       for (let i = 0; i < Math.floor(Math.random() * maxRows) + 1; i++) {
         const cols = [];
         for (let j = 0; j < Math.floor(Math.random() * maxCols) + 1; j++) {
-          const tileType = tileTypes[Math.floor(Math.random() * tileTypes.length)]; // Random type
+          const tileType = tileTypes[Math.floor(Math.random() * tileTypes.length)];
+          var tileName = "";
+          switch (tileType) {
+            case "plain" :
+              tileName = plains[Math.floor(Math.random() * plains.length)];
+              break;
+            case "settlement":
+              tileName = settlements[Math.floor(Math.random() * settlements.length)];
+              break;
+            case "lake":
+              tileName = lakes[Math.floor(Math.random() * lakes.length)];
+              break;
+            case "forest":
+              tileName = forests[Math.floor(Math.random() * forests.length)];
+              break;
+            case "dungeon":
+              tileName = dungeons[Math.floor(Math.random() * dungeons.length)];
+              break;
+          }
           cols.push({
             id: `tile-${i}-${j}`,
-            name: listMap[tileType + 's'][Math.floor(Math.random() * listMap[tileType].length)],
+            name: tileName,
             type: tileType,
             visited: false, // Track if the tile was visited
           });
@@ -212,8 +221,9 @@ export default function Home() {
     // Now, place the capital tile at a guaranteed random position
     const randomRow = Math.floor(Math.random() * rows.length);
     const randomCol = Math.floor(Math.random() * rows[randomRow].length);
-    rows[randomRow][randomCol].type = "capital";
-    rows[randomRow][randomCol].name = "Capital";
+    var capitalTile = rows[randomRow][randomCol];
+    capitalTile.type = "capital";
+    capitalTile.name = capitals[Math.floor(Math.random() * capitals.length)];
     
     return rows;
   }
