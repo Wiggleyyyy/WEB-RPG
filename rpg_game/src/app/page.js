@@ -136,16 +136,31 @@ export default function Home() {
       required_stats: {
         strength: 10,
         dexterity: 5,
+        intelligence: 0,
+        faith: 0,
+        arcane: 0,
       },
       scaling: {
         strength: {
           rank: "S",
-          scaling: 1.5,
+          scaling: 1.60,
         },
         dexterity: {
           rank: "B",
-          scaling: 1.1,
-        }
+          scaling: 1.4,
+        },
+        intelligence: {
+          rank: "F",
+          scaling: 1.0,
+        },
+        faith: {
+          rank: "F",
+          scaling: 1.0,
+        },
+        arcane: {
+          rank: "F",
+          scaling: 1.0,
+        },
       },
       lore: "This legendary sword was lost to time after the fall of the Forgotten Kingdom. Many have sought it, but few have survived its cursed powers. The one who wields it shall control the fate of worlds, but risk losing their identity to the whispers of the Forgotten King."
     },
@@ -158,18 +173,33 @@ export default function Home() {
       base_damage: 80,
       equipable: true,
       required_stats: {
+        strength: 0,
         dexterity: 15,
         intelligence: 8,
+        faith: 0,
+        arcane: 0,
       },
       scaling: {
+        strength: {
+          rank: "F",
+          scaling: 1.0,
+        },
         dexterity: {
           rank: "A",
-          scaling: 1.4,
+          scaling: 1.5,
         },
         intelligence: {
           rank: "C",
+          scaling: 1.3,
+        },
+        faith: {
+          rank: "F",
           scaling: 1.0,
-        }
+        },
+        arcane: {
+          rank: "F",
+          scaling: 1.0,
+        },
       },
       lore: "The Ashen Bow was said to be the only weapon capable of channeling the fiery wrath of the elementals without burning its wielder. Only those of true resolve can master its wild power."
     },
@@ -183,17 +213,32 @@ export default function Home() {
       equipable: true,
       required_stats: {
         strength: 18,
-        endurance: 12,
+        dexterity: 0,
+        intelligence: 0,
+        faith: 0,
+        arcane: 0,
       },
       scaling: {
         strength: {
           rank: "A",
-          scaling: 1.3,
+          scaling: 1.50,
         },
-        endurance: {
-          rank: "B",
-          scaling: 1.2,
-        }
+        dexterity: {
+          rank: "F",
+          scaling: 1.0,
+        },
+        intelligence: {
+          rank: "F",
+          scaling: 1.0,
+        },
+        faith: {
+          rank: "F",
+          scaling: 1.0,
+        },
+        arcane: {
+          rank: "F",
+          scaling: 1.0,
+        },
       },
       lore: "Stormbreaker was passed down through generations of Storm Wardens, but its true power has never been fully unleashed—some say the wielder must be one with the storms to unlock its full might."
     },
@@ -206,18 +251,33 @@ export default function Home() {
       base_damage: 60,
       equipable: true,
       required_stats: {
+        strength: 0,
         dexterity: 12,
+        intelligence: 0,
+        faith: 0,
         arcane: 8,
       },
       scaling: {
+        strength: {
+          rank: "F",
+          scaling: 1.0,
+        },
         dexterity: {
           rank: "A",
-          scaling: 1.3,
+          scaling: 1.5,
+        },
+        intelligence: {
+          rank: "F",
+          scaling: 1.0,
+        },
+        faith: {
+          rank: "F",
+          scaling: 1.0,
         },
         arcane: {
           rank: "C",
-          scaling: 1.0,
-        }
+          scaling: 1.3,
+        },
       },
       lore: "The Dagger of Eternal Night was crafted by a forgotten sorcerer who sought to control the power of darkness. Legend has it that those who wield the dagger are doomed to wander the night forever."
     },
@@ -230,18 +290,33 @@ export default function Home() {
       base_damage: 90,
       equipable: true,
       required_stats: {
-        dexterity: 8,
         strength: 10,
+        dexterity: 0,
+        intelligence: 0,
+        faith: 0,
+        arcane: 0,
       },
       scaling: {
-        dexterity: {
-          rank: "B",
-          scaling: 1.2,
-        },
         strength: {
           rank: "B",
-          scaling: 1.2,
-        }
+          scaling: 1.4,
+        },
+        dexterity: {
+          rank: "B",
+          scaling: 1.4,
+        },
+        intelligence: {
+          rank: "F",
+          scaling: 1.0,
+        },
+        faith: {
+          rank: "F",
+          scaling: 1.0,
+        },
+        arcane: {
+          rank: "F",
+          scaling: 1.0,
+        },
       },
       lore: "The Frostbound Spear was once the symbol of the Frost Guardians, who protected their icy realm from invaders. It is said that the spear holds the essence of eternal winter."
     },
@@ -255,20 +330,35 @@ export default function Home() {
       equipable: true,
       required_stats: {
         strength: 16,
+        dexterity: 0,
+        intelligence: 0,
         faith: 8,
+        arcane: 0,
       },
       scaling: {
         strength: {
           rank: "A",
+          scaling: 1.50,
+        },
+        dexterity: {
+          rank: "B",
           scaling: 1.4,
+        },
+        intelligence: {
+          rank: "F",
+          scaling: 1.0,
         },
         faith: {
           rank: "C",
+          scaling: 1.3,
+        },
+        arcane: {
+          rank: "F",
           scaling: 1.0,
-        }
+        },
       },
       lore: "The blade is said to contain the essence of a fire god, and those who can master its flames will wield a power that can reshape the world. Many have tried to control the Inferno’s Edge, but few have survived."
-    }
+    },
   ];
     
 

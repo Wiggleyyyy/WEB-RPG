@@ -1,6 +1,6 @@
 "use client";
 
-import { DiscAlbum, Scroll } from "lucide-react";
+import { Dice1, DiscAlbum, Scroll } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Drawer,
@@ -143,6 +143,74 @@ export function Inventory({ items, handleItemClick, equipLeftHand, equipRightHan
               </div>
               <div className="w-[25vw] h-[50vh] flex flex-col bg-zinc-900 p-5 rounded-lg">
                 {/* You can add stats for the selected item here */}
+                {selectedItem ? (
+                    <div className="flex flex-col items-center w-[100%]">
+                        <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                            <h1>Rarity:</h1>
+                            <h1>{selectedItem.rarity}</h1>
+                        </div>
+                        <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                            <h1>Base damage:</h1>
+                            <h1>{selectedItem.base_damage}</h1>
+                        </div>
+                    </div>
+                ): (
+                    <></>
+                )}
+                {selectedItem && selectedItem.type == "weapon" ? (
+                    <ScrollArea>
+                        <div className="flex flex-col items-center w-[100%] my-5">
+                            <h1 className="text-lg text-yellow-400">Required attributes:</h1>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Strength:</h1>
+                                <h1>{selectedItem.required_stats.strength}</h1>
+                            </div>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Dexterity:</h1>
+                                <h1>{selectedItem.required_stats.dexterity}</h1>
+                            </div>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Intelligence:</h1>
+                                <h1>{selectedItem.required_stats.intelligence}</h1>
+                            </div>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Faith:</h1>
+                                <h1>{selectedItem.required_stats.faith}</h1>
+                            </div>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Arcane:</h1>
+                                <h1>{selectedItem.required_stats.arcane}</h1>
+                            </div>
+                        </div>
+                        <div className="flex flex-col items-center w-[100%] my-5">
+                            <h1 className="text-lg text-yellow-400">Scaling:</h1>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Strength:</h1>
+                                <h1>{selectedItem.scaling.strength.rank}</h1>
+                            </div>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Dexterity:</h1>
+                                <h1>{selectedItem.scaling.dexterity.rank}</h1>
+                            </div>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Intelligence:</h1>
+                                <h1>{selectedItem.scaling.intelligence.rank}</h1>
+                            </div>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Faith:</h1>
+                                <h1>{selectedItem.scaling.faith.rank}</h1>
+                            </div>
+                            <div className="flex flex-row w-[100%] justify-between text-yellow-400">
+                                <h1>Arcane:</h1>
+                                <h1>{selectedItem.scaling.arcane.rank}</h1>
+                            </div>
+                        </div>
+                    </ScrollArea>
+                ) : (
+                    <h1 className="text-yellow-400 text-lg">
+                      No item selected.
+                    </h1>
+                )}
               </div>
             </div>
           </DrawerFooter>
