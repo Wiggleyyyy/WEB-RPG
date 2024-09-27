@@ -20,6 +20,11 @@ export function User({ items }) {
   const [selectedItem, setSelectedItem] = useState(null);
   const [leftHandItem, setLeftHandItem] = useState(null);
   const [rightHandItem, setRightHandItem] = useState(null);
+  const [headArmorItem, setHeadArmorItem] = useState(null);
+  const [chestArmorItem, setChestArmorItem] = useState(null);
+  const [legsArmorItem, setLegsArmorItem] = useState(null);
+  const [footArmorItem, setFootArmorItem] = useState(null);
+
 
   function LoadInventory() {
     console.log("Inventory loaded");
@@ -60,6 +65,42 @@ export function User({ items }) {
   function unequipRightHand() {
     setRightHandItem(null);
     console.log("Unequipped right hand");
+  }
+
+  function equipHeadArmor() {
+    if (selectedItem && selectedItem.equipable) {
+      if (headArmorItem === selectedItem) {
+        setHeadArmorItem(null);
+      }
+      setHeadArmorItem(selectedItem);
+    }
+  }
+
+  function equipChestArmor() {
+    if (selectedItem && selectedItem.equipable) {
+      if (chestArmorItem === selectedItem) {
+        setChestArmorItem(null);
+      }
+      setChestArmorItem(selectedItem);
+    }
+  }
+
+  function equipLegsArmor() {
+    if (selectedItem && selectedItem.equipable) {
+      if (legsArmorItem === selectedItem) {
+        setLegsArmorItem(null);
+      }
+      setLegsArmorItem(selectedItem);
+    }
+  }
+
+  function equipFootArmor() {
+    if (selectedItem && selectedItem.equipable) {
+      if (footArmorItem === selectedItem) {
+        setFootArmorItem(null);
+      }
+      setFootArmorItem(selectedItem);
+    }
   }
 
   return (
@@ -124,7 +165,7 @@ export function User({ items }) {
         </div>
         <div className="w-[100%] m-5 h-[0.25vh] bg-yellow-400"></div>
         <div className="flex flex-col justify-center items-center w-[100%]">
-          <Inventory items={items} handleItemClick={handleItemClick} equipLeftHand={equipLeftHand} equipRightHand={equipRightHand} unequipLeftHand={unequipLeftHand} unequipRightHand={unequipRightHand} selectedItem={selectedItem} setSelectedItem={setSelectedItem} leftHandItem={leftHandItem} setLeftHandItem={setLeftHandItem} rightHandItem={rightHandItem} setRightHandItem={setRightHandItem}/>
+          <Inventory items={items} handleItemClick={handleItemClick} equipLeftHand={equipLeftHand} equipRightHand={equipRightHand} unequipLeftHand={unequipLeftHand} unequipRightHand={unequipRightHand} selectedItem={selectedItem} setSelectedItem={setSelectedItem} leftHandItem={leftHandItem} setLeftHandItem={setLeftHandItem} rightHandItem={rightHandItem} setRightHandItem={setRightHandItem} headArmorItem={headArmorItem} setHeadArmorItem={setHeadArmorItem} chestArmorItem={chestArmorItem} setChestArmorItem={setChestArmorItem} legsArmorItem={legsArmorItem} setLegsArmorItem={setLegsArmorItem} footArmorItem={footArmorItem} setFootArmorItem={setFootArmorItem}/>
           <button className="m-5 bg-zinc-800 border-2 border-yellow-400 text-yellow-400 rounded-lg p-2 w-[90%]">
             Ongoing quests
           </button>

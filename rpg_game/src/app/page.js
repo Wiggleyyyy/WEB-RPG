@@ -359,6 +359,51 @@ export default function Home() {
       },
       lore: "The blade is said to contain the essence of a fire god, and those who can master its flames will wield a power that can reshape the world. Many have tried to control the Inferno’s Edge, but few have survived."
     },
+    {
+      type: "armor",
+      armor_type: "head",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/radahn's_lion_armor_set_elden_ring_wiki_guide_200px.png",
+      name: "Lionheart Plate",
+      description: "Forged in the heart of a dying sun, this plate armor glows with a faint golden light. It was worn by the Lionheart, a fearless champion who led armies into battle without ever faltering.",
+      rarity: "Legendary",
+      defense: 120,
+      equipable: true,
+      lore: "The Lionheart Plate was said to be indestructible, capable of withstanding even the most devastating blows. However, it is said to weigh heavily on the soul, burdening the wearer with the memories of past battles.",
+    },
+    {
+      type: "armor",
+      armor_type: "head",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/malenia's_helm_elden_ring_wiki_guide_200px.png",
+      name: "Helm of the Eternal Flame",
+      description: "A fiery helm crafted in the depths of a volcanic forge. The wearer can feel the heat of the molten core radiating from within, providing protection against fire.",
+      rarity: "Legendary",
+      defense: 80,
+      equipable: true,
+      lore: "The Helm of the Eternal Flame is said to contain the burning spirit of a fire deity. Those who wear it can withstand the heat of the flames but may become consumed by an unquenchable rage."
+    },
+    {
+      type: "armor",
+      armor_type: "chest",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/banished_knight_armor_elden_ring_wiki_guide_200px.png",
+      name: "Dragonscale Chestplate",
+      description: "This chestplate was forged from the scales of an ancient dragon. Its surface is nearly indestructible, and it offers unparalleled protection against physical attacks.",
+      rarity: "Epic",
+      defense: 150,
+      equipable: true,
+      lore: "Forged from the scales of a dragon long thought to be extinct, the Dragonscale Chestplate is a relic of a forgotten era. Only the strongest warriors can bear its weight."
+    },
+    {
+      type: "armor",
+      armor_type: "legs",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/greaves_of_the_crucible_knight_elden_ring_wiki_guide_200px.png",
+      name: "Greaves of the Forgotten Warden",
+      description: "Heavy greaves worn by the Forgotten Wardens of an ancient fortress. Their durability has withstood the test of time, granting the wearer stability in the face of battle.",
+      rarity: "Rare",
+      defense: 100,
+      equipable: true,
+      lore: "The Forgotten Wardens once guarded the ruins of a fallen kingdom. Their greaves have been passed down through generations, each wearer bearing the burden of the past."
+    },
+
   ];
     
 
