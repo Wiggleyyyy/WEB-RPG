@@ -3,6 +3,7 @@ import { Navigation } from "@/components/navigation";
 import * as React from "react";
 import { Interaction } from "@/components/interactions";
 import { User } from "@/components/user";
+import { Description } from "@radix-ui/react-dialog";
 
 export default function Home() {
   const plains = [
@@ -123,6 +124,154 @@ export default function Home() {
     "The Oathroot Forest"
   ];
 
+  const items = [
+    {
+      type: "weapon",
+      image: "",
+      name: "Blade of the Forgotten King",
+      description: "A mystical sword forged in the heart of a dying star, wielded by a forgotten king. The blade hums with ancient power, said to be bound to the soul of its rightful heir. It is rumored that whoever wields this sword shall never face defeat in battle, but at the cost of their memories fading away.",
+      rarity: "Epic",
+      base_damage: 100,
+      equipable: true,
+      required_stats: {
+        strength: 10,
+        dexterity: 5,
+      },
+      scaling: {
+        strength: {
+          rank: "S",
+          scaling: 1.5,
+        },
+        dexterity: {
+          rank: "B",
+          scaling: 1.1,
+        }
+      },
+      lore: "This legendary sword was lost to time after the fall of the Forgotten Kingdom. Many have sought it, but few have survived its cursed powers. The one who wields it shall control the fate of worlds, but risk losing their identity to the whispers of the Forgotten King."
+    },
+    {
+      type: "weapon",
+      image: "",
+      name: "Ashen Bow of Eldoria",
+      description: "Crafted from the ashes of the Eldorian World Tree, this bow burns with an unquenchable fire. Legends say that it was wielded by the hero who sealed the fire elementals in an eternal prison beneath Eldoria's roots.",
+      rarity: "Legendary",
+      base_damage: 80,
+      equipable: true,
+      required_stats: {
+        dexterity: 15,
+        intelligence: 8,
+      },
+      scaling: {
+        dexterity: {
+          rank: "A",
+          scaling: 1.4,
+        },
+        intelligence: {
+          rank: "C",
+          scaling: 1.0,
+        }
+      },
+      lore: "The Ashen Bow was said to be the only weapon capable of channeling the fiery wrath of the elementals without burning its wielder. Only those of true resolve can master its wild power."
+    },
+    {
+      type: "weapon",
+      image: "",
+      name: "Stormbreaker Warhammer",
+      description: "A massive warhammer imbued with the power of thunder. It once belonged to the Storm Warden, a titan who controlled the skies. The hammer sparks with lightning, and its strikes can shatter the earth.",
+      rarity: "Epic",
+      base_damage: 130,
+      equipable: true,
+      required_stats: {
+        strength: 18,
+        endurance: 12,
+      },
+      scaling: {
+        strength: {
+          rank: "A",
+          scaling: 1.3,
+        },
+        endurance: {
+          rank: "B",
+          scaling: 1.2,
+        }
+      },
+      lore: "Stormbreaker was passed down through generations of Storm Wardens, but its true power has never been fully unleashed—some say the wielder must be one with the storms to unlock its full might."
+    },
+    {
+      type: "weapon",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/black_knife_dagger_weapon_elden_ring_wiki_guide_200px.png",
+      name: "Dagger of Eternal Night",
+      description: "A shadowy dagger forged in the depths of the underworld. Its blade is sharp enough to cut through light itself. Assassins who wield this dagger become invisible in the shadows.",
+      rarity: "Rare",
+      base_damage: 60,
+      equipable: true,
+      required_stats: {
+        dexterity: 12,
+        arcane: 8,
+      },
+      scaling: {
+        dexterity: {
+          rank: "A",
+          scaling: 1.3,
+        },
+        arcane: {
+          rank: "C",
+          scaling: 1.0,
+        }
+      },
+      lore: "The Dagger of Eternal Night was crafted by a forgotten sorcerer who sought to control the power of darkness. Legend has it that those who wield the dagger are doomed to wander the night forever."
+    },
+    {
+      type: "weapon",
+      image: "",
+      name: "Frostbound Spear",
+      description: "An icy spear forged in the glaciers of the Frost Peaks. It emanates a chilling aura, freezing enemies on contact. The spear's origins are lost to time, but it is believed to have been wielded by the Frost Guardians.",
+      rarity: "Epic",
+      base_damage: 90,
+      equipable: true,
+      required_stats: {
+        dexterity: 8,
+        strength: 10,
+      },
+      scaling: {
+        dexterity: {
+          rank: "B",
+          scaling: 1.2,
+        },
+        strength: {
+          rank: "B",
+          scaling: 1.2,
+        }
+      },
+      lore: "The Frostbound Spear was once the symbol of the Frost Guardians, who protected their icy realm from invaders. It is said that the spear holds the essence of eternal winter."
+    },
+    {
+      type: "weapon",
+      image: "",
+      name: "Inferno's Edge",
+      description: "A greatsword eternally wreathed in flames, said to be forged in the volcanic heart of the world. Those who wield it must withstand its intense heat or risk being burned by its wrath.",
+      rarity: "Legendary",
+      base_damage: 120,
+      equipable: true,
+      required_stats: {
+        strength: 16,
+        faith: 8,
+      },
+      scaling: {
+        strength: {
+          rank: "A",
+          scaling: 1.4,
+        },
+        faith: {
+          rank: "C",
+          scaling: 1.0,
+        }
+      },
+      lore: "The blade is said to contain the essence of a fire god, and those who can master its flames will wield a power that can reshape the world. Many have tried to control the Inferno’s Edge, but few have survived."
+    }
+  ];
+    
+
   const [currentTile, setCurrentTile] = React.useState({});
   const [grid, setGrid] = React.useState([]);
   const [yellowPosition, setYellowPosition] = React.useState({ row: 0, col: 0 });
@@ -232,7 +381,7 @@ export default function Home() {
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
       {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tile={currentTile}/>}
       <Interaction tile={currentTile}/>
-      <User />
+      <User items={items}/>
     </main>
   );
 }
