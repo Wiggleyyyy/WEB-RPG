@@ -127,7 +127,7 @@ export default function Home() {
   const items = [
     {
       type: "weapon",
-      image: "",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/golden_order_greatsword_weapon_elden_ring_wiki_guide_200px.png",
       name: "Blade of the Forgotten King",
       description: "A mystical sword forged in the heart of a dying star, wielded by a forgotten king. The blade hums with ancient power, said to be bound to the soul of its rightful heir. It is rumored that whoever wields this sword shall never face defeat in battle, but at the cost of their memories fading away.",
       rarity: "Epic",
@@ -151,7 +151,7 @@ export default function Home() {
     },
     {
       type: "weapon",
-      image: "",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/black_bow_weapon_elden_ring_wiki_guide_200px.png",
       name: "Ashen Bow of Eldoria",
       description: "Crafted from the ashes of the Eldorian World Tree, this bow burns with an unquenchable fire. Legends say that it was wielded by the hero who sealed the fire elementals in an eternal prison beneath Eldoria's roots.",
       rarity: "Legendary",
@@ -175,7 +175,7 @@ export default function Home() {
     },
     {
       type: "weapon",
-      image: "",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/battle_hammer_warhammer_weapon_elden_ring_wiki_guide_200px.png",
       name: "Stormbreaker Warhammer",
       description: "A massive warhammer imbued with the power of thunder. It once belonged to the Storm Warden, a titan who controlled the skies. The hammer sparks with lightning, and its strikes can shatter the earth.",
       rarity: "Epic",
@@ -223,7 +223,7 @@ export default function Home() {
     },
     {
       type: "weapon",
-      image: "",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/crystal_spear_elden_ring_wiki_guide_200px.png",
       name: "Frostbound Spear",
       description: "An icy spear forged in the glaciers of the Frost Peaks. It emanates a chilling aura, freezing enemies on contact. The spear's origins are lost to time, but it is believed to have been wielded by the Frost Guardians.",
       rarity: "Epic",
@@ -247,7 +247,7 @@ export default function Home() {
     },
     {
       type: "weapon",
-      image: "",
+      image: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/blasphemous_blade_weapon_elden_ring_wiki_guide_200px.png",
       name: "Inferno's Edge",
       description: "A greatsword eternally wreathed in flames, said to be forged in the volcanic heart of the world. Those who wield it must withstand its intense heat or risk being burned by its wrath.",
       rarity: "Legendary",
