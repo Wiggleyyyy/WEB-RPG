@@ -225,6 +225,7 @@ export default function Home() {
     capitalTile.type = "capital";
     capitalTile.name = capitals[Math.floor(Math.random() * capitals.length)];
     capitalTile.hasNpcs = true;
+    capitalTile.npcs = ["merchant", "blacksmith", "knight", "king"];
     
     return rows;
   }
