@@ -1,6 +1,5 @@
 "use client";
 
-import { DiscAlbum, Scroll } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Drawer,
@@ -16,7 +15,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
 import { Inventory } from "./inventory";
 
-export function User({ items }) {
+export function User({ items: initialItems }) {
+  const [items, setItems] = useState(initialItems);
   const [selectedItem, setSelectedItem] = useState(null);
   const [leftHandItem, setLeftHandItem] = useState(null);
   const [rightHandItem, setRightHandItem] = useState(null);
@@ -24,10 +24,39 @@ export function User({ items }) {
   const [chestArmorItem, setChestArmorItem] = useState(null);
   const [legsArmorItem, setLegsArmorItem] = useState(null);
   const [footArmorItem, setFootArmorItem] = useState(null);
+  const [gold, setGold] = useState(0);
 
-
-  function LoadInventory() {
-    console.log("Inventory loaded");
+  function discard(item) {
+    console.log("discarding item: ", item)
+    switch (item.rarity){
+      case "common":
+        setGold(gold + 10);
+        setItems((prevItems) => prevItems.filter((invItem) => invItem !== item));
+        setSelectedItem(null);
+        break;
+      case "uncommon":
+        setGold(gold + 20);
+        setItems((prevItems) => prevItems.filter((invItem) => invItem !== item));
+        setSelectedItem(null);
+        break;
+      case "rare":
+        setGold(gold + 30);
+        setItems((prevItems) => prevItems.filter((invItem) => invItem !== item));
+        setSelectedItem(null);
+        break;
+      case "epic":
+        setGold(gold + 40);
+        setItems((prevItems) => prevItems.filter((invItem) => invItem !== item));
+        setSelectedItem(null);
+        break;
+      case "legendary":
+        setGold(gold + 50);
+        setItems((prevItems) => prevItems.filter((invItem) => invItem !== item));
+        setSelectedItem(null);
+        break;
+      default:
+        break;
+    }
   }
 
   function handleItemClick(item) {
@@ -165,7 +194,7 @@ export function User({ items }) {
         </div>
         <div className="w-[100%] m-5 h-[0.25vh] bg-yellow-400"></div>
         <div className="flex flex-col justify-center items-center w-[100%]">
-          <Inventory items={items} handleItemClick={handleItemClick} equipLeftHand={equipLeftHand} equipRightHand={equipRightHand} unequipLeftHand={unequipLeftHand} unequipRightHand={unequipRightHand} selectedItem={selectedItem} setSelectedItem={setSelectedItem} leftHandItem={leftHandItem} setLeftHandItem={setLeftHandItem} rightHandItem={rightHandItem} setRightHandItem={setRightHandItem} headArmorItem={headArmorItem} setHeadArmorItem={setHeadArmorItem} chestArmorItem={chestArmorItem} setChestArmorItem={setChestArmorItem} legsArmorItem={legsArmorItem} setLegsArmorItem={setLegsArmorItem} footArmorItem={footArmorItem} setFootArmorItem={setFootArmorItem}/>
+          <Inventory items={items} handleItemClick={handleItemClick} equipLeftHand={equipLeftHand} equipRightHand={equipRightHand} unequipLeftHand={unequipLeftHand} unequipRightHand={unequipRightHand} selectedItem={selectedItem} setSelectedItem={setSelectedItem} leftHandItem={leftHandItem} setLeftHandItem={setLeftHandItem} rightHandItem={rightHandItem} setRightHandItem={setRightHandItem} headArmorItem={headArmorItem} setHeadArmorItem={setHeadArmorItem} chestArmorItem={chestArmorItem} setChestArmorItem={setChestArmorItem} legsArmorItem={legsArmorItem} setLegsArmorItem={setLegsArmorItem} footArmorItem={footArmorItem} setFootArmorItem={setFootArmorItem} discard={discard}/>
           <button className="m-5 bg-zinc-800 border-2 border-yellow-400 text-yellow-400 rounded-lg p-2 w-[90%]">
             Ongoing quests
           </button>

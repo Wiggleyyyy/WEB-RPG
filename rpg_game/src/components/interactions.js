@@ -51,22 +51,22 @@ export function Interaction({ tile, items }) {
                         <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" 
                         onClick={() => setNpcName("Ziggleborb")}>Talk to Merchant</button>
 
-                    :   <button className="bg-zinc-800 bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" onClick={() => setNpcName("")}> exit</button>
+                    :   <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" onClick={() => setNpcName("")}> exit</button>
                     }
                     <br></br>
                     {npcName != "John Smith" ? 
                         <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400 my-1" 
                         onClick={() => setNpcName("John Smith")}>Talk to Blacksmith</button>
 
-                    :   <button className="bg-zinc-800 bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400 my-1" 
+                    :   <button className=" bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400 my-1" 
                         onClick={() => setNpcName("")}> exit</button>
                     }
                     <br></br>
                     {npcName != "John Knight" ? 
-                        <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" 
+                        <button className=" border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" 
                         onClick={() => setNpcName("John Knight")}>Talk to Knight</button>
 
-                    :   <button className="bg-zinc-800 bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" 
+                    :   <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" 
                         onClick={() => setNpcName("")}> exit</button>
                     }
                 </div>

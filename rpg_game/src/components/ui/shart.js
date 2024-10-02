@@ -11,7 +11,6 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { parse } from "next/dist/build/swc";
 import { useState } from "react";
 
 export function Shart({ items }) {

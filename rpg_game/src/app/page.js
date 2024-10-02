@@ -3,7 +3,6 @@ import { Navigation } from "@/components/navigation";
 import * as React from "react";
 import { Interaction } from "@/components/interactions";
 import { User } from "@/components/user";
-import { Description } from "@radix-ui/react-dialog";
 
 export default function Home() {
   const plains = [

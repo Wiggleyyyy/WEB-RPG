@@ -24,7 +24,8 @@ export function Inventory({
   armsArmorItem,
   setArmsArmorItem,
   legsArmorItem,
-  setLegsArmorItem
+  setLegsArmorItem,
+  discard
 }) {
   function equipArmor(armorType) {
     if (!selectedItem || selectedItem.type !== "armor") return; // Check if the selected item is armor
@@ -263,7 +264,9 @@ export function Inventory({
                           </button>
                         ) : null}
 
-                        <button className="text-lg bg-zinc-800 text-yellow-400 p-2 border-2 border-yellow-400 rounded-lg">Discard</button>
+                        <button className="text-lg bg-zinc-800 text-yellow-400 p-2 border-2 border-yellow-400 rounded-lg" onClick={() => discard(selectedItem)}>
+                          Discard
+                        </button>
                       </div>
                     ) : (
                       <></>
