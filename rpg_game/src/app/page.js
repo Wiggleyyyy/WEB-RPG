@@ -291,6 +291,11 @@ export default function Home() {
     setCurrentTile(currentTile);
   }, []);
 
+  function GetRandomNpcs (count) {
+    for (let i = 0; i < Math.floor(Math.random()) * count; i++){
+      npcs.push("");
+    }
+  }
   function Move(direction) {
     const currentTileId = yellowPosition.row.toString() + yellowPosition.col.toString();
     let { row, col } = yellowPosition;
@@ -318,7 +323,6 @@ export default function Home() {
 
     const currentTile = grid[row][col];
     setCurrentTile(currentTile);
-    console.log(currentTile.type);
   }
 
   function generateGrid(maxRows, maxCols) {
@@ -336,21 +340,28 @@ export default function Home() {
         for (let j = 0; j < Math.floor(Math.random() * maxCols) + 1; j++) {
           const tileType = tileTypes[Math.floor(Math.random() * tileTypes.length)];
           var tileName = "";
+          var npcs = [];
+
           switch (tileType) {
             case "plain" :
               tileName = plains[Math.floor(Math.random() * plains.length)];
+              GetRandomNpcs(2);
               break;
             case "settlement":
               tileName = settlements[Math.floor(Math.random() * settlements.length)];
+              GetRandomNpcs(1);
               break;
             case "lake":
               tileName = lakes[Math.floor(Math.random() * lakes.length)];
+              GetRandomNpcs(2);
               break;
             case "forest":
               tileName = forests[Math.floor(Math.random() * forests.length)];
+              GetRandomNpcs(3);
               break;
             case "dungeon":
               tileName = dungeons[Math.floor(Math.random() * dungeons.length)];
+              GetRandomNpcs(0);
               break;
           }
           cols.push({
@@ -358,8 +369,8 @@ export default function Home() {
             name: tileName,
             type: tileType,
             visited: false, // Track if the tile was visited
-            hasNpcs: false,
-            npcs: [],
+            hasNpcs: npcs.count > 0,
+            npcs: npcs,
           });
         }
         rows.push(cols);
@@ -375,13 +386,14 @@ export default function Home() {
     capitalTile.name = capitals[Math.floor(Math.random() * capitals.length)];
     capitalTile.hasNpcs = true;
     capitalTile.npcs = ["merchant", "blacksmith", "knight", "king"];
+    rows[randomRow][randomCol] = capitalTile;
     
     return rows;
   }
   return (
     <main className="bg-zinc-800 w-[100dvw] h-[100dvh]">
       {grid.length > 0 && <Navigation Move={Move} grid={grid} yellowPosition={yellowPosition} tile={currentTile}/>}
-      <Interaction tile={currentTile}/>
+      <Interaction tile={currentTile} items={items}/>
       <User items={items}/>
     </main>
   );

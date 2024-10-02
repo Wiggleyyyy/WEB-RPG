@@ -1,6 +1,6 @@
 "use client";
 
-import { Merchant } from "./merchant";
+import { OpenNpc } from "./merchant";
 import * as React from "react";
 import {
   AlertDialog,
@@ -16,14 +16,8 @@ import {
 
   
 
-export function Interaction({ tile }) {
-    const [merchantOpen, setMerchantOpen] = React.useState(false);
-    function OpenMerchant(){
-        var name = "Ziggleborb";
-        return (
-            setMerchantOpen(<Merchant name={name}/>)
-        )
-    }
+export function Interaction({ tile, items }) {
+    const [npcName, setNpcName] = React.useState("");
 
     function CheckForAnimals() {
     var isAnimals = false;
@@ -51,11 +45,30 @@ export function Interaction({ tile }) {
         ) : tile.type === "dungeon" ? (
             <h1>dungeon</h1>
         ) : tile.type === "capital" ? (
-            <div className="flex items-center justify-center h-[100%]"> 
-                <div className="flex items-center justify-center h-[100%]">
-                    <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" onClick={() => setMerchantOpen(<Merchant name={"Ziggleborb"}/>)}>Talk to Merchant</button>
-                    <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" onClick={() => setMerchantOpen(false)}>Talk to Blacksmith</button>
-                    <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" onClick={() => OpenMerchant()}>Talk to Knight</button>
+            <div className="flex  justify-center items-center flex-col h-[100%]"> 
+                <div className="absolute">
+                    {npcName != "Ziggleborb" ? 
+                        <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" 
+                        onClick={() => setNpcName("Ziggleborb")}>Talk to Merchant</button>
+
+                    :   <button className="bg-zinc-800 bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" onClick={() => setNpcName("")}> exit</button>
+                    }
+                    <br></br>
+                    {npcName != "John Smith" ? 
+                        <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400 my-1" 
+                        onClick={() => setNpcName("John Smith")}>Talk to Blacksmith</button>
+
+                    :   <button className="bg-zinc-800 bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400 my-1" 
+                        onClick={() => setNpcName("")}> exit</button>
+                    }
+                    <br></br>
+                    {npcName != "John Knight" ? 
+                        <button className="bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" 
+                        onClick={() => setNpcName("John Knight")}>Talk to Knight</button>
+
+                    :   <button className="bg-zinc-800 bg-zinc-800 border-2 border-yellow-400 rounded-lg p-2 text-yellow-400" 
+                        onClick={() => setNpcName("")}> exit</button>
+                    }
                 </div>
 
             </div>
@@ -65,7 +78,7 @@ export function Interaction({ tile }) {
             <h1>Error, tile type not found</h1>
         )}
         </div>
-        { merchantOpen && merchantOpen }
+        { npcName && <OpenNpc name={npcName} items={items}/> }
         </>
     );
 }
